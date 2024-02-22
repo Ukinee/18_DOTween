@@ -1,19 +1,17 @@
 using DG.Tweening;
+using Sources;
 using UnityEngine;
 
-public class LoopedRotator : MonoBehaviour
+public class LoopedRotator : DotweenLooperBase
 {
-    [SerializeField] private float _duration = 3f;
-    [SerializeField] private int _loopCount = -1;
-
-    void Start()
+    private void Start()
     {
         transform
             .DOLocalRotateQuaternion
             (
                 Quaternion.LookRotation(Vector3.back),
-                _duration
+                Duration
             )
-            .SetLoops(_loopCount, LoopType.Restart);
+            .SetLoops(LoopCount, LoopType.Restart);
     }
 }

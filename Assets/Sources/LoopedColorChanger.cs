@@ -1,18 +1,17 @@
 using DG.Tweening;
+using Sources;
 using UnityEngine;
 
-public class LoopedColorChanger : MonoBehaviour
+public class LoopedColorChanger : DotweenLooperBase
 {
     [SerializeField] private Material _material;
     [SerializeField] private Color _startColor = Color.blue;
     [SerializeField] private Color _targetColor = Color.green;
-    [SerializeField] private float _duration = 3f;
-    [SerializeField] private int _lopCount = -1;
     
-    void Start()
+    private void Start()
     {
         _material.color = _startColor;
         
-        _material.DOColor(_targetColor, _duration).SetLoops(_lopCount, LoopType.Yoyo);
+        _material.DOColor(_targetColor, Duration).SetLoops(LoopCount, LoopType.Yoyo);
     }
 }

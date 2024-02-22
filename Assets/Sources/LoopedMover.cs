@@ -1,15 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
+using Sources;
 
-public class LoopedMover : MonoBehaviour
+public class LoopedMover : DotweenLooperBase
 {
-    [SerializeField] private float _duration = 3f;
-    [SerializeField] private int _loopCount = -1;
-
     private readonly Vector3 _targetPosition = new Vector3(12, 0.5f, 15);
 
-    void Start()
+    private void Start()
     {
-        transform.DOMove(_targetPosition, _duration).SetLoops(_loopCount, LoopType.Yoyo);
+        transform.DOMove(_targetPosition, Duration).SetLoops(LoopCount, LoopType.Yoyo);
     }
 }
